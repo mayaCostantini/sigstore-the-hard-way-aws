@@ -7,3 +7,5 @@
 - [Domain Configuration](./03-domain-configuration.md)
 - [Rekor](./04-rekor.md)
 - [Dex](./05-dex.md)
+- [Fulcio](./06-fulcio.md)
+- [Certificate Transparency](./07-certificate-transparency.md)
