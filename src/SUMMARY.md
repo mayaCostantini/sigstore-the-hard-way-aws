@@ -9,3 +9,4 @@
 - [Dex](./05-dex.md)
 - [Fulcio](./06-fulcio.md)
 - [Certificate Transparency](./07-certificate-transparency.md)
+- [Configure OCI Registry](./08-oci-registry.md)
