@@ -31,7 +31,7 @@ sudo docker login
 Now we can tag and push our image:
 
 ```bash
-docker tag SOURCE_IMAGE_NAME:VERSION ghcr.io/TARGET_OWNER/TARGET_IMAGE_NAME:VERSION
+docker tag SOURCE_IMAGE_NAME:VERSION TARGET_OWNER/TARGET_IMAGE_NAME:VERSION
 ```
 
 Push re-tagged imaged to the container registry:
