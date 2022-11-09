@@ -205,26 +205,55 @@ make build
 sudo mv bin/dex /usr/local/bin/
 ```
 
-### Obtain GitHub OAUTH credentials
+### Obtain Google OAUTH credentials
 
-The original Sigstore the Hard Way tutorial provides instructions on how to get Google OAuth credentials.
-This version will show how to use GitHub as an additional example.
+> 📝 We re using Google here, you can do the same for github and microsoft too.
+  The placeholders are already within `config.yaml`
 
-1. Register a GitHub OAuth application.
-Go to the Settings of your personal or organization GitHub account, and click Developer Settings, then Oauth Apps.
-Register a new application:
+1. Head to the [credentials page](https://console.cloud.google.com/apis/credentials)
 
-*Insert image*
+2. Select 'CONFIGURE CONSENT SCREEN'
 
-Click on Generate a new client secret. Note it along with the generated Client ID, then click on Update application.
+    Select 'Internal'
+
+    > If you're not a Google Workspace user, the 'Internal' option will not be available. You can only make your app available to external (general audience) users only. In such a case, the 'External' User Type works fine as well.
+
+    Fill out the app registration details: 
+
+    - App name: sthw-aws
+    - User support email: your@email.com
+    - Application home page: https://oauth2.sigstore-aws-example.com
+    - Authorized domains: sigstore-aws-example.com
+    - Developer contact information: your@email.com
+
+3. Set scopes
+
+    Select 'ADD OR REMOVE SCOPES' and set the `userinfo.email` scope
+
+    Select "SAVE AND CONTINUE"
+
+    Select "BACK TO DASHBOARD" and select 'Credentials'
+
+4. Create OAuth Client ID
+
+    Click on "Create credentials" and select "OAuth client ID". Select "Web Application" and fill out the "Authorized Redirect URIs"
+
+    Select "CREATE"
+
+    - Application type: Web application
+    - Name: sthw-aws
+    - Authorized redirect URIs: https://oauth2.sigstore-aws-example.com/auth
+
+5. Note down tour Client ID and Secret and keep them safe (we will need them for dex)
+
 
 ### Configure Dex
 
 Set up the configuration file for dex.
 Provide saved OIDC details as variables
 ```
-GITHUB_CLIENT_ID="..."
-GITHUB_CLIENT_SECRET="..."
+GOOGLE_CLIENT_ID="..."
+GOOGLE_CLIENT_SECRET="..."
 ```
 ```
 cat > dex-config.yaml <<EOF
@@ -262,13 +291,13 @@ staticClients:
 redirectURI: https://${DOMAIN}/auth/callback
 
 connectors:
-#- type: google
-#  id: google-sigstore-test
-#  name: Google
-#  config:
-#    clientID: $GOOGLE_CLIENT_ID
-#    clientSecret: $GOOGLE_CLIENT_SECRET
-#    redirectURI: https://${DOMAIN}/auth/callback
+- type: google
+  id: google-sigstore-test
+  name: Google
+  config:
+    clientID: $GOOGLE_CLIENT_ID
+    clientSecret: $GOOGLE_CLIENT_SECRET
+    redirectURI: https://${DOMAIN}/auth/callback
 
 #- type: microsoft
 #  id: microsoft-sigstore-test
@@ -278,13 +307,13 @@ connectors:
 #     clientSecret: $MSFT_CLIENT_SECRET
 #     redirectURI: https://${DOMAIN}/auth/callback
 
-- type: github
-  id: github-sigstore-test
-  name: GitHub
-  config:
-     clientID: $GITHUB_CLIENT_ID
-     clientSecret: $GITHUB_CLIENT_SECRET
-     redirectURI: https://${DOMAIN}/auth/callback
+#- type: github
+#  id: github-sigstore-test
+#  name: GitHub
+#  config:
+#     clientID: $GITHUB_CLIENT_ID
+#     clientSecret: $GITHUB_CLIENT_SECRET
+#     redirectURI: https://${DOMAIN}/auth/callback
 EOF
 ```
 

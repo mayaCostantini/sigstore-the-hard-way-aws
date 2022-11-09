@@ -33,5 +33,3 @@ Your browser will now be opened to:
 https://oauth2.sigstore-test-infra.click/auth/auth?access_type=online&client_id=sigstore&code_challenge=-YrhBfsskEMHE7rlOz4jeCZkqff847vWyswuaaIApXs&code_challenge_method=S256&nonce=2HH9keJQ2fYgBeTFUCxVumwno8y&redirect_uri=http%3A%2F%2Flocalhost%3A36705%2Fauth%2Fcallback&response_type=code&scope=openid+email&state=2HH9kXxXseJTyHsPUiDSnX3F3AX
 
 ```
-
-TODO: fix oauth 

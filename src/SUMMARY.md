@@ -11,4 +11,4 @@
 - [Certificate Transparency](./07-certificate-transparency.md)
 - [Configure OCI Registry](./08-oci-registry.md)
 - [Set up Cosign](./09-set-up-cosign.md)
-- [Sign a container](./10-sign-container)
+- [Sign a container](./10-sign-container.md)
