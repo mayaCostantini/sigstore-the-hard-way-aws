@@ -17,41 +17,48 @@ In the top-right corner, select `Create security group`.
 Choose a security group name, a description and eventually specify a VPC.
 
 Create the following inbound traffic rules:
-
+```
 - Type: Custom TCP
 - Protocol: TCP
 - Port range: 22
 - Source: Anywhere-IPv4 (0.0.0.0/0)
-
+```
+```
 - Type: Custom TCP
 - Protocol: TCP
 - Port range: 80
 - Source: Anywhere-IPv4 (0.0.0.0/0)
-
+```
+```
 - Type: Custom TCP
 - Protocol: TCP
 - Port range: 80
 - Source: Anywhere-IPv4 (0.0.0.0/0)
-
+```
+```
 - Type: All ICMP - IPv4
 - Protocol: ICMP
 - Port range: All
 - Source: Anywhere-IPv4 (0.0.0.0/0)
-
+```
+```
 - Type: All TCP
 - Protocol: TCP
 - Port range: 0 - 65535
 - Source: 172.31.50.0/24
-
+```
+```
 - Type: All ICMP - IPv4
 - Protocol: ICMP
 - Port range: All
 - Source: 172.31.50.0/24
-
+```
+```
 - Type: All UDP
 - Protocol: UDP
 - Port range: 0 - 65535
 - Source: 172.31.50.0/24
+```
 
 ## Compute resources
 
