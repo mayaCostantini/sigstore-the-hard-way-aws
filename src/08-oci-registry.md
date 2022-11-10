@@ -1,6 +1,6 @@
 # Configure Container Registry
 
-We will use the Docker Hub registry to push an image and a signature with cosign.
+We will use the Quay.io container registry to push an image and a signature with cosign.
 
 ## Install and start Docker
 
@@ -21,9 +21,9 @@ EOF
 docker build -t sigstore-thw:latest .
 ```
 
-Login to Docker Hub
+Login to Quay
 ```
-sudo docker login
+sudo docker login quay.io
 ```
 
 ## Tag and push an image
@@ -42,9 +42,5 @@ docker push OWNER/IMAGE_NAME:VERSION
 
 For example:
 ```
-sudo docker push mayacostantini/sigstore-thw:latest
-
-The push refers to repository [docker.io/mayacostantini/sigstore-thw]
-994393dc58e7: Mounted from library/alpine 
-latest: digest: sha256:67350a93198db86763c8db751138ed9392b3c44bd7afdb17f7130b5b73bd51c8 size: 528
+sudo docker push mcostant/sigstore-thw:latest
 ```

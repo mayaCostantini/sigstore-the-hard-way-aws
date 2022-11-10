@@ -15,16 +15,11 @@ The goal of this tutorial is to learn how to deploy Sigstore from scratch on AWS
 
 In this tutorial, we will provision AWS EC2 instances to install and configure Sigstore components.
 
-TODO: complete
-
-## Certificate Authority
-
-TODO: complete
-
 ### Copyright
 
-TODO: complete
+This tutorial is an adaptation of the original Sigstore the Hard Way tutorial available under the [lukehinds/sigstore-the-hard-way repository](https://github.com/lukehinds/sigstore-the-hard-way) for AWS.
+If you have not guessed by name, this is based off, and comes with credit to [Kelsey Hightower's Kubernetes the Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
 
 ## Having issues, something not working?
 
-TODO: complete
+Please raise an issue or feel free to contact me on slack or by [email](mcostant@redhat.com), this tutorial is a work in progress, feedback and contributions are greatly appreciated.
