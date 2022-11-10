@@ -1,0 +1,8 @@
+[book]
+authors = ["Luke Hinds", "Maya Costantini"]
+language = "en"
+multilingual = false
+src = "src"
+title = "sigstore the hard way - AWS version"
+description = "How to deploy sigstore from the ground up on AWS."
+default_theme = "Ayu"
