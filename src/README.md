@@ -22,4 +22,4 @@ If you have not guessed by name, this is based off, and comes with credit to [Ke
 
 ## Having issues, something not working?
 
-Please raise an issue or feel free to contact me on slack or by [email](mcostant@redhat.com), this tutorial is a work in progress, feedback and contributions are greatly appreciated.
+Please raise an issue or feel free to contact me on slack or by [email](mailto:mcostant@redhat.com), this tutorial is a work in progress, feedback and contributions are greatly appreciated.
