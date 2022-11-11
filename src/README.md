@@ -1,7 +1,7 @@
 # Sigstore the Hard Way - AWS version
 
 Welcome the Sigstore the Hard Way tutorial, AWS version.
-This tutorial is inspired by the original GCP version that can be found under the (lukehinds/sigstore-the-hard-way)[https://github.com/lukehinds/sigstore-the-hard-way] repository and at https://sthw.decodebytes.sh/
+This tutorial is inspired by the original GCP version that can be found under the [lukehinds/sigstore-the-hard-way](https://github.com/lukehinds/sigstore-the-hard-way) repository and at https://sthw.decodebytes.sh/
 
 The goal of this tutorial is to learn how to deploy Sigstore from scratch on AWS EC2, by setting up:
 
