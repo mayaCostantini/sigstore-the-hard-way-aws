@@ -50,7 +50,7 @@ export SIGSTORE_ROOT_FILE="$HOME/fulcio-root.pem"
 Download the Rekor public key:
 
 ```bash
-wget -O publicKey.pem https://rekor.sigstore.dev/api/v1/log/publicKey
+wget -O publicKey.pem https://rekor.sigstore-aws-example.com/api/v1/log/publicKey
 ```
 
 Set it in the appropriate environment variable:
@@ -62,13 +62,13 @@ export SIGSTORE_REKOR_PUBLIC_KEY="$PWD/publicKey.pem"
 We can now verify
 
 ```bash
-COSIGN_EXPERIMENTAL=1 cosign verify --rekor-url https://rekor.example.com quay.io/<quay_user>/sigstore-thw:latest
+COSIGN_EXPERIMENTAL=1 cosign verify --rekor-url https://rekor.sigstore-aws-example.com quay.io/<quay_user>/sigstore-thw:latest
 ```
 
 An example:
 
 ```bash
-COSIGN_EXPERIMENTAL=1 cosign verify --rekor-url https://rekor.decodebytes.sh quay.io/mcostant/sigstore-thw:latest
+COSIGN_EXPERIMENTAL=1 cosign verify --rekor-url https://rekor.sigstore-aws-example.com quay.io/mcostant/sigstore-thw:latest
 
 Verification for quay.io/mcostant/sigstore-thw:latest --
 The following checks were performed on each of these signatures:
