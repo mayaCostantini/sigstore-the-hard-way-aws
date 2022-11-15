@@ -32,7 +32,7 @@ Create the following inbound traffic rules:
 ```
 - Type: Custom TCP
 - Protocol: TCP
-- Port range: 80
+- Port range: 443
 - Source: Anywhere-IPv4 (0.0.0.0/0)
 ```
 ```
