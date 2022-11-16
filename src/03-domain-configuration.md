@@ -18,7 +18,7 @@ Repeat this process for the `sigstore-fulcio` and `sigstore-oauth2` instances.
 
 ## Configuring DNS with Route53
 
-Search for the `Route53` service in the console, and click `Create hosted zone` in the Route53` dashboard.
+Search for the `Route53` service in the console, and click `Create hosted zone` in the Route53 dashboard.
 Enter `sigstore-aws-example.com` as a domain name, enter a description and select `Public hosted zone`. Click `Create hosted zone`.
 Verify the hosted zone was created successfully, select it and click `Create record`.
 
