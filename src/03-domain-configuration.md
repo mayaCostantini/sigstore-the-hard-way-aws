@@ -6,7 +6,7 @@ Now we will set up DNS with Route53 to associate domains to the `sigstore-rekor`
 
 In the console, search for the `Elastic IP addresses` in `EC2`.
 Click on `Allocate Elastic IP address`, select `Amazon's pool of IPv4 addresses`, optionally add a tag and click `Allocate`.
-Repeat this process three times to get IP addresses for each one of the four services we will deploy.
+Repeat this process three times to get IP addresses for each one of the services we will deploy that need a public IP.
 The addresses should be ready shortly under the `Elastic IP addresses` menu.
 
 Now let's associate the allocated addresses to each one of our instances.
