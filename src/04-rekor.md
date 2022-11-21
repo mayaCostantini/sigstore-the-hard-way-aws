@@ -195,7 +195,7 @@ go install github.com/google/trillian/cmd/trillian_log_signer@v1.3.14-0.20210713
 sudo mv ~/go/bin/trillian_log_signer /usr/local/bin/
 ```
 
->  📝 The repository version pinned here correspond to the ones in the original GCP Sigstore the Hard Way tutorial to ensure components compatibility. Those version can eventually be updated to a later version.
+>  📝 The repository versions pinned here correspond to the ones in the original GCP Sigstore the Hard Way tutorial to ensure components compatibility. Those version can eventually be updated to a later version.
 
 ## Run Trillian
 
@@ -210,7 +210,7 @@ trillian_log_signer --logtostderr --force_master --http_endpoint=localhost:8190 
 
 Alternatively, create bare minimal systemd services:
 ```
-cat /etc/systemd/system/trillian_log_server.service
+vim /etc/systemd/system/trillian_log_server.service
 ```
 ```
 [Unit]
@@ -230,7 +230,7 @@ WantedBy=multi-user.target
 ```
 
 ```
-cat /etc/systemd/system/trillian_log_signer.service
+vim /etc/systemd/system/trillian_log_signer.service
 ```
 ```
 [Unit]
