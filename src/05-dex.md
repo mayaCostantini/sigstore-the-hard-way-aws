@@ -97,7 +97,7 @@ sudo vim /etc/letsencrypt/renewal-hooks/post/haproxy-ssl-renew.sh
 ```
 #!/bin/bash
 
-DOMAIN="oauth2.example.com"
+DOMAIN="oauth2.sigstore-aws-example.com"
 
 cat "/etc/letsencrypt/live/${DOMAIN}/fullchain.pem" \
     "/etc/letsencrypt/live/${DOMAIN}/privkey.pem" \
@@ -113,7 +113,7 @@ sudo chmod +x /etc/letsencrypt/renewal-hooks/post/haproxy-ssl-renew.sh
 
 Replace port and address in the certbot's renewal configuration file for the domain (pass ACME request through the haproxy to certbot)
 ```
-sudo vim /etc/letsencrypt/renewal/oauth2.example.com.conf
+sudo vim /etc/letsencrypt/renewal/oauth2.sigstore-aws-example.com.conf
 ```
 ```
 http01_port = 9080
@@ -318,6 +318,56 @@ EOF
 ```
 
 >  SQLite3 is the recommended storage for users who want to stand up dex quickly. It is not appropriate for real workloads (see [Dex storage documentation](https://dexidp.io/docs/storage/#sqlite3)).
+
+Alternatively, you can configure PostgreSQL or MySQL for a production-ready deployment of Dex. Here, we will use PostgreSQL.
+
+Make sure postgres is installed and that the `postgres` service is running:
+
+```
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+sudo systemctl start postgresql.service
+```
+```
+● postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
+     Active: active (exited) since Mon 2022-11-21 14:09:41 UTC; 1min 19s ago
+    Process: 24100 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
+   Main PID: 24100 (code=exited, status=0/SUCCESS)
+        CPU: 1ms
+
+Nov 21 14:09:41 ip-172-31-50-54 systemd[1]: Starting PostgreSQL RDBMS...
+Nov 21 14:09:41 ip-172-31-50-54 systemd[1]: Finished PostgreSQL RDBMS.
+```
+
+Switch to the postgres user and create the database:
+```
+sudo -i -u postgres
+psql
+```
+```
+CREATE DATABASE dex_db;
+CREATE USER dex WITH PASSWORD '66964843358242dbaaa7778d8477c288';
+GRANT ALL PRIVILEGES ON DATABASE dex_db TO dex;
+```
+
+Exit the session.
+In the `storage` section of the `dex-config.yaml` file, enter the following configuration:
+
+```
+storage:
+  type: postgres
+  config:
+    host: localhost
+    port: 5432
+    database: dex_db
+    user: dex
+    password: 66964843358242dbaaa7778d8477c288
+    ssl:
+      mode: disable
+```
+
+>  It is preferable to set up the database SSL mode on `verify-ca` or `verify-full` in security-critical deployments. For more information on how to do so, see the [pg Go library documentation](https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters).
 
 Move configuration file
 ```
