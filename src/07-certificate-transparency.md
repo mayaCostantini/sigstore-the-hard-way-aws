@@ -151,38 +151,6 @@ Creating test database and test user account
 Loading table data..
 ```
 
-# Install latest golang compiler
-
-Download and run the golang installer
-```
-curl -O https://storage.googleapis.com/golang/getgo/installer_linux
-```
-```
-chmod +x installer_linux
-```
-```
-./installer_linux
-```
-```
-Welcome to the Go installer!
-Downloading Go version go1.19.3 to /home/ubuntu/.go
-This may take a bit of time...
-Downloaded!
-Setting up GOPATH
-GOPATH has been set up!
-
-One more thing! Run `source /home/ubuntu/.bash_profile` to persist the
-new environment variables to your current session, or open a
-new shell prompt.
-```
-
-As suggested run
-```
-source /home/ubuntu/.bash_profile
-go version
-go version go1.19.3 linux/amd64
-```
-
 ### Install trillian components
 
 ```
